@@ -1,24 +1,43 @@
-import React from 'react'
+import React from 'react';
+import './UserHero.css';
 
 function UserHero() {
   return (
-    <>
-    <div style={{backgroundColor: "#f6214b", height: "90vh", position: "relative"}}>
-    <div>
-    <div style={{position: "absolute", padding: "15%"}}>
-        <h6 style={{color: "white"}}>Process Visa without within hours</h6>
-        <h1 style={{color: "white", fontSize: "60px"}}>Immigrations & <br />
-        Visa Consultation</h1>
-        <button style={{border: "none", padding: "10px", fontWeight: "700"}}>Book Consultancy</button>
-    </div>
-    <div style={{position:"absolute", right: "0%", bottom: "0%"}}>
-        <img src="https://preview.colorlib.com/theme/immigration/img/header-img.png.webp" alt="" />
-    </div>
-    </div>
-    </div>
+    <div
+      style={{
+        backgroundColor: "#f6214b",
+        height: "90vh",
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "5%",
+      }}
+    >
     
-    </>
-  )
+      <div style={{ maxWidth: "50%", color: "white" }}>
+        <h6 style={{ marginBottom: "10px" }}>Process Visa without within hours</h6>
+        <h1 style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", marginBottom: "20px" }}>
+          Immigrations & <br />
+          Visa Consultation
+        </h1>
+        <button className="consultancy-button">Book Consultancy</button>
+      </div>
+
+     
+      <div style={{ maxWidth: "45%", textAlign: "right" }}>
+        <img
+          src="https://preview.colorlib.com/theme/immigration/img/header-img.png.webp"
+          alt="Header Image"
+          style={{
+            width: "100%",
+            height: "auto",
+            objectFit: "contain",
+          }}
+        />
+      </div>
+    </div>
+  );
 }
 
-export default UserHero
+export default UserHero;

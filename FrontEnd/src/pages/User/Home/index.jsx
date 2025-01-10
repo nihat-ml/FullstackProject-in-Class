@@ -1,6 +1,8 @@
 import React from 'react'
 import UserHero from '../../../Components/UserHero'
 import Immigrations from '../Immigrations'
+import FeaturesSection from '../../../Components/UserFeatures'
+import BlogSection from '../../../Components/BlogSection'
 
 
 function Home() {
@@ -8,6 +10,8 @@ function Home() {
     <>
     <UserHero/>
     <Immigrations/>
+    <FeaturesSection/>
+    <BlogSection/>
     </>
     
     

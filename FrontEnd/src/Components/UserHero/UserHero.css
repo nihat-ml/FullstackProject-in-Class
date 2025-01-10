@@ -1,0 +1,16 @@
+.consultancy-button {
+    border: none;
+    padding: 10px 20px;
+    font-weight: 700;
+    background-color: white;
+    color: #f6214b;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .consultancy-button:hover {
+    background-color: #f6214b;
+    color: white;
+  }
+  
