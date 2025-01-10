@@ -1,35 +1,66 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import axios from 'axios'
+import { FaHeart } from 'react-icons/fa';
 
 function Immigrations() {
+
+    const [immigrants, setImmigrant] = useState([])
+
+    function getImmigrants(){
+        axios.get("http://localhost:3001/immigrations")
+        .then((res)=>{
+            setImmigrant(res.data)
+        })
+    }
+
+    useEffect(()=>{
+        getImmigrants();
+    },[])
+
     return (
         <Container>
           <Row>
-            <Col>
-            <div style={{
+          <div style={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center"
+                alignItems: "center",
+                margin: "40px 0px"
             }
             }>
                 <h2>Requirements to be Immigrants</h2>
             </div>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+            {immigrants.map((immigrant)=>
+            <Col>
+            
+            <Card style={{ width: '18rem', margin: "5% 0%" }}>
+                <Card.Img variant="top" src={immigrant.image} />
                 <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>{immigrant.country}</Card.Title>
                 <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                 </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
+                            {immigrant.description}
+                </Card.Text>
+                <Card.Text>
+                            %{immigrant.percent}
+                </Card.Text>
+                        <Button variant="primary">Detail</Button>
+                        <Button variant="danger">Delete</Button>
+                        <Button variant="warning">Edit</Button>
+                        <FaHeart
+                            
+                                        style={{
+                                            cursor: 'pointer',
+                                            color: "red",
+                                            fontSize: '1.5rem',
+                                        }}
+                                    />
                  </Card.Body>
                 </Card>
-            </Col>
+            </Col>)}
           </Row>
         </Container>
       );
